@@ -65,14 +65,16 @@ public class IdenticalBinarySearchTree {
     }
 
 
-    public static class TreeNode{
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int val){
-            this.val = val;
-        }
+
+}
+
+class TreeNode{
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int val){
+        this.val = val;
     }
-
 }

@@ -36,7 +36,7 @@ public class ContainsDuplicate {
     
     private static boolean solution(int[] nums){
         //most optimal
-        Integer num[] = Arrays.stream( nums ).boxed().toArray( Integer[]::new );
+        Integer[] num = Arrays.stream( nums ).boxed().toArray( Integer[]::new );
         Set<Integer> myset = new HashSet<> (Arrays.asList(num));
         return (num.length!=myset.size());
     }

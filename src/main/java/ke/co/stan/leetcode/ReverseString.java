@@ -10,14 +10,15 @@ package ke.co.stan.leetcode;
  */
 public class ReverseString {
     public static void main(String[] args) {
-        String word = "hello";
-        ReverseString.solution(word.toCharArray());
+        String word = "hello stan";
+        System.out.println(ReverseString.solution1(word));
     }
     
-    private static void solution(char[] s){
-         int begin = 0;
+    private static String solution(String string){
+        char[] s = string.toCharArray();
+        int begin = 0;
         int end = s.length - 1;
-        
+
         while (begin <= end) {
             char temp = s[begin];
             s[begin] = s[end];
@@ -26,5 +27,15 @@ public class ReverseString {
             begin++;
             end--;
         }
+        return new String(s);
+    }
+
+    private static String solution1(String s){
+        String[] words = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for(String word: words){
+            res.append(new StringBuffer(word).reverse()).append(" ");
+        }
+        return res.toString().trim();
     }
 }

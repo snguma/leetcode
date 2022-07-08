@@ -5,6 +5,7 @@
 package ke.co.stan.leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  *
@@ -22,12 +23,15 @@ public class TwoSum {
     
     public static void main(String[] args) {
         
-        int[] nums = {2,7,5,5,11};
-        int target = 9;
+        int[] nums = {11,3,6,5,11};
+        int target = 22;
         int[] result = TwoSum.twoSum(nums, target);
         System.out.println(Arrays.toString(result));
     }
-    
+
+    // brute force approach
+    // time complexity - O(n2)
+    // space complexity - O(1)
     public static int[] twoSum(int[] nums, int target) {
         int[] retVal = new int[2];
         for(int i=0; i<nums.length; i++){
@@ -39,6 +43,23 @@ public class TwoSum {
             }
         }
         return retVal;
+    }
+
+
+    // time complexity O(n)
+    // space complexity O(n)
+    public int[] twoSumOptimal(int[] numbers, int target) {
+
+        HashMap<Integer,Integer> hash = new HashMap<>();
+        for(int i = 0; i < numbers.length; i++){
+            Integer diff = (target - numbers[i]);
+            if(hash.containsKey(diff)){
+                return new int[]{hash.get(diff)+1, i+1};
+            }
+            hash.put(numbers[i], i);
+        }
+
+        return null;
     }
     
 }
